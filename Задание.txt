@@ -1,0 +1,72 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+    public static class Broadcasting {
+        private int duration;
+        Broadcasting (int duration) {
+            this.duration = duration;
+        }
+    }
+    interface Parts{
+
+    }
+    public static class Song implements Parts {
+        String artist;
+        String songName;
+        Song (String artist, String songName) {
+            this.artist = artist;
+            this.songName = songName;
+        }
+    }
+    public static class Advertising implements Parts{
+        String productName;
+        Advertising (String productName) {
+            this.productName = productName;
+        }
+    }
+    int costAdvertising = 5;
+    public static class Interview implements Parts {
+        String interviewer;
+        Interview (String interviewer) {
+            this.interviewer = interviewer;
+        }
+    }
+
+    int costInterview = 30;
+    public static class otherBroadcasting implements Parts{
+        String otherNameBroadcasting;
+        otherBroadcasting (String otherNameBroadcasting) {
+            this.otherNameBroadcasting = otherNameBroadcasting;
+        }
+    }
+    public static class Presenter {
+        String namePresenter;
+        int experience;
+        List<String> show;
+        Presenter (String namePresenter, int experience, List<String> show) {
+          this.namePresenter = namePresenter;
+          this.experience = experience;
+          this.show = show;
+        }
+    }
+    public static class GuestPresenter {
+        String namePresenter;
+        String summary;
+        List<String> show;
+        GuestPresenter (String namePresenter, String summary, List<String> show) {
+            this.namePresenter = namePresenter;
+            this.summary = summary;
+            this.show = show;
+        }
+    }
+    public static void main(String[] args) {
+        Song song = new Song ("Eminem", "Lose yourself");
+        Advertising advertising = new Advertising ("PrivatBank");
+        Interview interview = new Interview ("Igor Ivanovich");
+         List<Parts> parts = new ArrayList<>();
+        parts.add(song);
+        parts.add(advertising);
+        parts.add(interview);
+    }
+}
