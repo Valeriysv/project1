@@ -1,0 +1,76 @@
+package test;
+
+abstract class Vehicle {
+    public int speed;
+    public int moneyForKm;
+    public int distance;
+
+    public Vehicle(int speed, int moneyForKm, int distance) {
+        this.speed = speed;
+        this.moneyForKm = moneyForKm;
+        this.distance = distance;
+    }
+
+    abstract void time();
+
+    abstract void price();
+}
+class Car extends Vehicle {
+    public int refuelingCar = 2;
+    public int driverServices = 100;
+
+    public Car(int speed, int moneyForKm, int distance) {
+        super(speed, moneyForKm, distance);
+    }
+
+    public void time() {
+        System.out.println("Время доставки автомобилем составит "+(distance/speed+refuelingCar)+" ч.");
+    }
+    public void price(){
+     System.out.println("Стоимость доставки авомобилем составит "+(moneyForKm*distance + driverServices) +" долл.");
+    }
+}
+class Bicycle extends Vehicle {
+    public int inflatingWheels = 1;
+    public int pumpServices = 5;
+
+    public Bicycle(int speed, int moneyForKm, int distance) {
+        super(speed, moneyForKm, distance);
+    }
+
+    public void time() {
+        System.out.println("Время доставки велосипедом составит "+(distance/speed+inflatingWheels)+" ч.");
+    }
+    public void price(){
+        System.out.println("Стоимость доставки велосипедом составит "+(moneyForKm*distance + pumpServices) +" долл.");
+    }
+}
+class Carriage extends Vehicle {
+    public int horseRest = 2;
+    public int carriageRepair = 4;
+
+    public Carriage(int speed, int moneyForKm, int distance) {
+        super(speed, moneyForKm, distance);
+    }
+
+    public void time() {
+        System.out.println("Время доставки повозкой составит "+(distance/speed+horseRest)+" ч.");
+    }
+    public void price(){
+        System.out.println("Стоимость доставки повозкой составит "+(moneyForKm*distance + carriageRepair) +" долл.");
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Car car = new Car(100,5,200);
+        car.time();
+        car.price();
+        Bicycle bicycle = new Bicycle(10, 1, 200);
+        bicycle.time();
+        bicycle.price();
+        Carriage carriage = new Carriage(6, 1, 200);
+        carriage.time();
+        carriage.price();
+
+    }
+}
